@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash App Support</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #000000 0%, #1a3c34 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Logo placeholder */
+        .logo-placeholder {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 213, 75, 0.3);
+        }
+
+        .logo-placeholder img {
+            width: 150px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .logo-placeholder img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 213, 75, 0.7);
+        }
+
+        /* Headings */
+        h1, h2 {
+            color: #00D54B;
+            text-shadow: 2px 2px 4px rgba(0, 213, 75, 0.5), 
+                        -2px -2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        p, ul {
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '•';
+            color: #00D54B;
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        /* Call buttons */
+        .call-button {
+            display: inline-block;
+            background: #00D54B;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 8px rgba(0, 213, 75, 0.4), 
+                        0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .call-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 12px rgba(0, 213, 75, 0.6);
+        }
+
+        /* Fixed bottom-right call button */
+        .fixed-call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #00D54B;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 213, 75, 0.5), 
+                        0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: ring 1.5s infinite;
+            z-index: 1000;
+        }
+
+        .fixed-call-button:hover {
+            box-shadow: 0 6px 15px rgba(0, 213, 75, 0.7);
+        }
+
+        .fixed-call-button svg {
+            width: 28px;
+            height: 28px;
+            fill: #ffffff;
+        }
+
+        /* Ringing animation */
+        @keyframes ring {
+            0% { transform: rotate(0deg) scale(1); }
+            10% { transform: rotate(5deg) scale(1.05); }
+            20% { transform: rotate(-5deg) scale(1.05); }
+            30% { transform: rotate(5deg) scale(1.05); }
+            40% { transform: rotate(-5deg) scale(1.05); }
+            50% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        /* Section divider */
+        hr {
+            border: none;
+            height: 1px;
+            background: #00D54B;
+            opacity: 0.3;
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: left;
+            margin-top: 2rem;
+            color: #999999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p, ul {
+                font-size: 0.9rem;
+            }
+
+            .call-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo-placeholder img {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p, ul {
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 1rem 0.5rem;
+            }
+
+            .call-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .fixed-call-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .fixed-call-button svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .logo-placeholder img {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Placeholder -->
+        <div class="logo-placeholder">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-cashapp-technology-logo-social-media-logo-download-svg-png-gif-flat-icon-logos-technology-logo-vol-1-pack-cashapp-logo-icon-2944743.png?f=webp" alt="Cash App Logo">
+        </div>
+
+        <!-- Content -->
+        <h1>Cash App Tech Support Helpline — We’re Here 24/7</h1>
+
+        <h2>Welcome to Cash App Support — Your One-Stop Solution for All Your Digital Payment Needs</h2>
+        <p>At Cash App, we know how important fast, reliable service is when managing your money. Whether you’re paying friends, investing in Bitcoin, using your Cash Card, or setting up direct deposits, we are here to ensure your experience is smooth, secure, and stress-free.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call customer Helpdesk Support</a>
+
+        <p>Our dedicated customer support team is available 24 hours a day, 7 days a week to help with any question, issue, or concern you may have. Whether you’re a long-time user or brand-new to Cash App, you can count on us for expert help and guidance.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Customer Helpdesk support</a>
+
+        <hr>
+
+        <h2>Get Support for All Cash App Services</h2>
+        <p>We assist with a wide range of topics, including:</p>
+        <ul>
+            <li>Sending and receiving payments</li>
+            <li>Setting up and managing your Cash App account</li>
+            <li>Troubleshooting payment failures or delays</li>
+            <li>Cash Card activation, replacement, or management</li>
+            <li>Bitcoin and Stock trading within Cash App</li>
+            <li>Direct deposit setup and tracking</li>
+            <li>Refunds, disputes, and resolving unauthorized transactions</li>
+        </ul>
+        <p>Our experts are trained to solve your problem quickly and effectively, getting you back to using Cash App without delays.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Customer Support</a>
+
+        <hr>
+
+        <h2>Your Security Is Our Top Priority</h2>
+        <p>At Cash App, we invest heavily in the latest security technology to protect you and your money. Here’s how we keep you safe:</p>
+        <ul>
+            <li>End-to-end encryption: Your data and transactions are fully encrypted from the moment you log in to the moment you complete a transaction.</li>
+            <li>Multi-factor authentication (MFA): Add an extra layer of security to your account with Face ID, Touch ID, or passcodes.</li>
+            <li>24/7 fraud monitoring: Our advanced systems and dedicated security specialists constantly monitor accounts for suspicious activity, phishing attacks, and fraud attempts.</li>
+            <li>Real-time alerts: We notify you instantly if we detect any unusual activity or login attempts.</li>
+        </ul>
+        <p>Stay protected by never sharing your Cash App PIN, sign-in code, or personal details with anyone. Remember: Cash App will never ask you to send money for support.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Cashapp Support Now</a>
+
+        <hr>
+
+        <h2>Cash Card Support — Get the Most Out of Your Card</h2>
+        <p>Need help with your Cash Card? We’ve got you covered!</p>
+        <ul>
+            <li>Activate your card quickly using the app</li>
+            <li>Replace lost, damaged, or stolen cards</li>
+            <li>Track your card purchases in real-time</li>
+            <li>Customize your card for a personal touch</li>
+        </ul>
+        <p>If your card is compromised, our team will help lock it down and issue a replacement to keep your funds secure.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Cashapp Customer Support</a>
+
+        <hr>
+
+        <h2>Refunds, Disputes, and Cancellations</h2>
+        <p>We understand that sometimes things go wrong. Whether it’s a mistaken payment or an issue with a merchant, our team is here to guide you through:</p>
+        <ul>
+            <li>Requesting refunds</li>
+            <li>Disputing unauthorized transactions</li>
+            <li>Canceling pending payments (if possible)</li>
+        </ul>
+        <p>Important Reminder: Cash App payments are typically instant and cannot be canceled once sent. Always double-check the $Cashtag, phone number, or email before sending funds.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Helpdesk Support</a>
+
+        <hr>
+
+        <h2>Why Trust Cash App?</h2>
+        <p>As a leader in mobile payments, Cash App combines cutting-edge technology, user-friendly design, and top-tier security to deliver a seamless experience. Here’s why millions trust us every day:</p>
+        <ul>
+            <li>Fast, instant transfers</li>
+            <li>Secure, encrypted connections</li>
+            <li>Innovative features like Bitcoin, Stocks, and Cash Card</li>
+            <li>A strong commitment to protecting user data and financial details</li>
+            <li>Responsive, knowledgeable customer support</li>
+        </ul>
+        <p>We continuously innovate to stay ahead of cybercriminals, ensuring your money stays safe and your experience stays excellent.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Customer Helpdesk Support</a>
+
+        <hr>
+
+        <h2>How to Reach Cash App Support</h2>
+        <p>Need assistance? Here’s how you can get help:</p>
+        <ul>
+            <li>In-app support: Tap your profile > Support > Contact Support</li>
+            <li>Help Center: Browse articles, FAQs, and tutorials at cash.app/help</li>
+            <li>24/7 Helpline: Speak directly to a Cash App support specialist</li>
+        </ul>
+        <p>We’re here for you anytime, anywhere.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Customer Service</a>
+
+        <hr>
+
+        <h2>Disclaimer</h2>
+        <p>Shop New AVS is an independent retailer specializing in genuine software, computer peripherals, and digital products. We comply fully with FTC guidelines and prioritize secure, transparent transactions.</p>
+        <p>Please note: Shop New AVS is not affiliated with Cash App or Square, Inc. We do not claim official partnership, endorsement, or sponsorship. All brand names, logos, and trademarks belong to their respective owners.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">call Helpdesk</a>
+
+        <hr>
+
+        <h2>Important Notice to Customers</h2>
+        <p>Before using our services, please review our Terms & Conditions and Privacy Policy available on our website. For the most current and accurate details about our buying, refund, and support processes, please refer to the official documents or contact our customer care team.</p>
+        <p>By using our services, you agree to follow the guidelines outlined in these policies.</p>
+        <p>For further help, visit our Help Center or get in touch — we’re always ready to assist you.</p>
+        <a href="tel:+1-833-534-1986" class="call-button">Call Cashapp Support</a>
+
+        <footer>
+            <p>© 2025 Cash App. All rights reserved</p>
+        </footer>
+    </div>
+
+    <!-- Fixed Bottom-Right Call Button -->
+    <a href="tel:+1-833-534-1986" class="fixed-call-button">
+        <svg viewBox="0 0 24 24">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-3.02-1.81-5.47-4.26-7.28-7.28l1.97-1.57c.33-.25.45-.71.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.55-.45-1-1-1H4.07C3.52 2 3 2.52 3 3.07c0 10.47 8.46 19 19 19 .55 0 1.07-.52 1.07-1.07v-2.01c0-.55-.45-1-1-1z"/>
+        </svg>
+    </a>
+</body>
+</html>
